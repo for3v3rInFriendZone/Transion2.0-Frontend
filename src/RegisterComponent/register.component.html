@@ -84,6 +84,9 @@
                 <div align="center">
                     <button mat-raised-button color="primary" (click)="toStepThree()">Sledeći korak</button>
                 </div>
+                <div style="margin-top: 30px;" align="center">
+                    <button mat-button (click)="goBack()">Nazad</button>
+                </div>
             </div>
 
             <div *ngIf="step3">
@@ -130,6 +133,9 @@
                 </div>
                 <div align="center">
                     <button mat-raised-button color="primary" (click)="toStepFour()">Sledeći korak</button>
+                </div>
+                <div style="margin-top: 30px;" align="center">
+                    <button mat-button (click)="goBack()">Nazad</button>
                 </div>
             </div>
         </div>

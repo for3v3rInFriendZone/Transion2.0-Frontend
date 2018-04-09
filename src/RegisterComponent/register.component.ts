@@ -23,6 +23,11 @@ export class RegisterComponent implements OnInit {
         this.step4 = false;
     }
 
+    toStepOne() {
+        this.step1 = true;
+        this.step2 = false;
+    }
+
     toStepTwo() {
         this.step1 = false;
         this.step2 = true;
@@ -36,5 +41,17 @@ export class RegisterComponent implements OnInit {
     toStepFour() {
         this.step3 = false;
         this.step4 = true;
+    }
+
+    goBack() {
+        if(this.step1) {
+            this.router.navigate(['']);
+        } else if(this.step2) {
+            this.toStepOne();
+        } else if(this.step3){
+            this.toStepTwo();
+        } else {
+            this.toStepThree();
+        }
     }
 }
