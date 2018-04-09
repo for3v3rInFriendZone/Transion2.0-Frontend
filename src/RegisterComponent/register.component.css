@@ -1,0 +1,17 @@
+div.center h2 {
+    font-family: "Times New Roman", Times, serif;
+    color: rgb(0, 77, 64);
+}
+
+div.long-center {
+    background:white;
+    position: relative;
+    margin-top: 150px;
+    color:black;
+    max-width: 500px; 
+    border-radius: 20px; 
+    border: 2px ridge rgb(180, 180, 180);
+    left: 29%;
+    padding: 15px;
+    opacity: 0.8;
+}

@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "noEmitOnError": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "lib": [
+            "dom",
+            "es2015"
+        ]
+    }
+}
