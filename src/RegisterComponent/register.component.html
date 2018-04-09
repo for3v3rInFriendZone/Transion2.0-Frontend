@@ -1,130 +1,139 @@
 <div class="container">
-    <div class="center animated fadeIn delay-1.1s" *ngIf="step1">
+    <div class="row">
+        <div class="center animated fadeIn delay-1.1s" *ngIf="step1">
 
-        <div align="center">
-            <figure class="logo">
-                <img src="../../assets/images/Transion3_logo.png" class="img-circle img-responsive">
-            </figure>
-            <h2> Registracija </h2>
-        </div>
-
-        <hr class="login_type" />
-
-        <mat-form-field class="almost-full-width">
-            <input matInput placeholder="E-mail">
-        </mat-form-field>
-        <mat-form-field class="almost-full-width">
-            <input matInput placeholder="Lozinka">
-        </mat-form-field>
-        <mat-form-field class="almost-full-width">
-            <input matInput placeholder="Potvrdite lozinku">
-        </mat-form-field>
-        <div align="center">
-            <button mat-raised-button color="primary" (click)="toStepTwo()">Sledeći korak</button>
-        </div>
-
-        <div style="margin-top: 30px;" align="center">
-            <button mat-button (click)="goBack()">Nazad</button>
-        </div>
-    </div>
-
-    <div class="long-center animated fadeIn delay-0.7s" *ngIf="step2 || step3 || step4">
-        <div align="center">
-            <figure class="logo">
-                <img src="../../assets/images/Transion3_logo.png" class="img-circle img-responsive">
-            </figure>
-            <h2> Registracija </h2>
-        </div>
-
-        <hr class="login_type" />
-
-        <div *ngIf="step2">
-            <mat-form-field class="almost-full-width">
-                <input matInput placeholder="Naziv agencije">
-            </mat-form-field>
-            <mat-form-field class="almost-full-width">
-                <input matInput placeholder="Pun naziv">
-            </mat-form-field>
-            <mat-form-field class="almost-full-width">
-                <input matInput placeholder="PIB">
-            </mat-form-field>
-            <mat-form-field class="almost-full-width">
-                <input matInput placeholder="Matični broj agencije">
-            </mat-form-field>
-            <mat-form-field class="almost-full-width">
-                <input matInput placeholder="Broj žiro računa">
-            </mat-form-field>
-            <mat-form-field class="almost-full-width">
-                <input matInput placeholder="Šifra delatnosti sa opisom">
-            </mat-form-field>
-            <mat-form-field class="almost-full-width">
-                <input matInput placeholder="Datum registracije agencije">
-            </mat-form-field>
-            <mat-form-field class="almost-full-width">
-                <input matInput placeholder="Grad i poštanski broj">
-            </mat-form-field>
-            <mat-form-field class="almost-full-width">
-                <input matInput placeholder="Ulica sedišta">
-            </mat-form-field>
-            <mat-form-field class="almost-full-width">
-                <input matInput placeholder="Broj sedišta">
-            </mat-form-field>
-            <mat-form-field class="almost-full-width">
-                <input matInput placeholder="Telefon">
-            </mat-form-field>
-            <mat-form-field class="almost-full-width">
-                <input matInput placeholder="E-mail">
-            </mat-form-field>
             <div align="center">
-                <button mat-raised-button color="primary" (click)="toStepThree()">Sledeći korak</button>
+                <figure class="logo">
+                    <img src="../../assets/images/Transion3_logo.png" class="img-circle img-responsive">
+                </figure>
+                <h2> Registracija </h2>
             </div>
-        </div> 
 
-        <div *ngIf="step3">
-            <mat-form-field class="almost-full-width">
-                <input matInput placeholder="Ime">
-            </mat-form-field>
-            <mat-form-field class="almost-full-width">
-                <input matInput placeholder="Prezime">
-            </mat-form-field>
-            <mat-form-field class="almost-full-width">
-                <input matInput placeholder="Državljanstvo">
-            </mat-form-field>
-            <mat-form-field class="almost-full-width">
-                <input matInput placeholder="JMBG">
-            </mat-form-field>
-            <mat-form-field class="almost-full-width">
-                <input matInput placeholder="Broj pasoša">
-            </mat-form-field>
-            <mat-form-field class="almost-full-width">
-                <input matInput placeholder="Stručna sprema">
-            </mat-form-field>
-            <mat-checkbox>U radnom odnosu u drugoj firmi?</mat-checkbox>
-            <mat-form-field class="almost-full-width">
-                <mat-select placeholder="Pol" [(value)]="selected">
-                    <mat-option>None</mat-option>
-                    <mat-option value="option1">Option 1</mat-option>
-                    <mat-option value="option2">Option 2</mat-option>
-                    <mat-option value="option3">Option 3</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <mat-form-field class="almost-full-width">
-                <input matInput placeholder="Grad">
-            </mat-form-field>
-            <mat-form-field class="almost-full-width">
-                <input matInput placeholder="Adresa">
-            </mat-form-field>
-            <mat-form-field class="almost-full-width">
-                <input matInput placeholder="Broj">
-            </mat-form-field>
-            <mat-form-field class="almost-full-width">
-                <input matInput placeholder="E-mail">
-            </mat-form-field>
+            <hr class="login_type" />
 
+            <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 col-xs-12">
+                <mat-form-field class="almost-full-width">
+                    <input matInput placeholder="E-mail">
+                </mat-form-field>
+                <mat-form-field class="almost-full-width">
+                    <input matInput placeholder="Lozinka">
+                </mat-form-field>
+                <mat-form-field class="almost-full-width">
+                    <input matInput placeholder="Potvrdite lozinku">
+                </mat-form-field>
+            </div>
             <div align="center">
-                <button mat-raised-button color="primary" (click)="toStepFour()">Sledeći korak</button>
+                <button mat-raised-button color="primary" (click)="toStepTwo()">Sledeći korak</button>
+            </div>
+            <div style="margin-top: 30px;" align="center">
+                <button mat-button (click)="goBack()">Nazad</button>
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="long-center animated fadeIn delay-0.7s" *ngIf="step2 || step3 || step4">
+            <div align="center">
+                <figure class="logo">
+                    <img src="../../assets/images/Transion3_logo.png" class="img-circle img-responsive">
+                </figure>
+                <h2> Registracija </h2>
+            </div>
+
+            <hr class="login_type" />
+
+            <div *ngIf="step2">
+                <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 col-xs-12">
+                    <mat-form-field class="almost-full-width">
+                        <input matInput placeholder="Naziv agencije">
+                    </mat-form-field>
+                    <mat-form-field class="almost-full-width">
+                        <input matInput placeholder="Pun naziv">
+                    </mat-form-field>
+                    <mat-form-field class="almost-full-width">
+                        <input matInput placeholder="PIB">
+                    </mat-form-field>
+                    <mat-form-field class="almost-full-width">
+                        <input matInput placeholder="Matični broj agencije">
+                    </mat-form-field>
+                    <mat-form-field class="almost-full-width">
+                        <input matInput placeholder="Broj žiro računa">
+                    </mat-form-field>
+                    <mat-form-field class="almost-full-width">
+                        <input matInput placeholder="Šifra delatnosti sa opisom">
+                    </mat-form-field>
+                    <mat-form-field class="almost-full-width">
+                        <input matInput placeholder="Datum registracije agencije">
+                    </mat-form-field>
+                    <mat-form-field class="almost-full-width">
+                        <input matInput placeholder="Grad i poštanski broj">
+                    </mat-form-field>
+                    <mat-form-field class="almost-full-width">
+                        <input matInput placeholder="Ulica sedišta">
+                    </mat-form-field>
+                    <mat-form-field class="almost-full-width">
+                        <input matInput placeholder="Broj sedišta">
+                    </mat-form-field>
+                    <mat-form-field class="almost-full-width">
+                        <input matInput placeholder="Telefon">
+                    </mat-form-field>
+                    <mat-form-field class="almost-full-width">
+                        <input matInput placeholder="E-mail">
+                    </mat-form-field>
+                </div>
+                <div align="center">
+                    <button mat-raised-button color="primary" (click)="toStepThree()">Sledeći korak</button>
+                </div>
+            </div>
+
+            <div *ngIf="step3">
+                <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 col-xs-12">
+                    <mat-form-field class="almost-full-width">
+                        <input matInput placeholder="Ime">
+                    </mat-form-field>
+                    <mat-form-field class="almost-full-width">
+                        <input matInput placeholder="Prezime">
+                    </mat-form-field>
+                    <mat-form-field class="almost-full-width">
+                        <input matInput placeholder="Državljanstvo">
+                    </mat-form-field>
+                    <mat-form-field class="almost-full-width">
+                        <input matInput placeholder="JMBG">
+                    </mat-form-field>
+                    <mat-form-field class="almost-full-width">
+                        <input matInput placeholder="Broj pasoša">
+                    </mat-form-field>
+                    <mat-form-field class="almost-full-width">
+                        <input matInput placeholder="Stručna sprema">
+                    </mat-form-field>
+                    <mat-checkbox>U radnom odnosu u drugoj firmi?</mat-checkbox>
+                    <mat-form-field class="almost-full-width">
+                        <mat-select placeholder="Pol" [(value)]="selected">
+                            <mat-option>None</mat-option>
+                            <mat-option value="option1">Option 1</mat-option>
+                            <mat-option value="option2">Option 2</mat-option>
+                            <mat-option value="option3">Option 3</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="almost-full-width">
+                        <input matInput placeholder="Grad">
+                    </mat-form-field>
+                    <mat-form-field class="almost-full-width">
+                        <input matInput placeholder="Adresa">
+                    </mat-form-field>
+                    <mat-form-field class="almost-full-width">
+                        <input matInput placeholder="Broj">
+                    </mat-form-field>
+                    <mat-form-field class="almost-full-width">
+                        <input matInput placeholder="E-mail">
+                    </mat-form-field>
+                </div>
+                <div align="center">
+                    <button mat-raised-button color="primary" (click)="toStepFour()">Sledeći korak</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </div>

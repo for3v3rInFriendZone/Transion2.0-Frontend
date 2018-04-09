@@ -10,13 +10,15 @@
 
             <hr class="login_type" />
 
-            <mat-form-field class="almost-full-width">
-                <input matInput placeholder="E-mail">
-            </mat-form-field>
-            <mat-form-field class="almost-full-width">
-                <input matInput placeholder="Lozinka">
-            </mat-form-field>
-            <div align="center">
+            <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 col-xs-12">
+                <mat-form-field class="almost-full-width">
+                    <input matInput placeholder="E-mail">
+                </mat-form-field>
+                <mat-form-field class="almost-full-width">
+                    <input matInput placeholder="Lozinka">
+                </mat-form-field>
+            </div>
+            <div class="row" align="center">
                 <button mat-raised-button color="primary">Prijavljivanje</button>
                 <p style="margin-top: 10px;"> Nemate nalog?
                     <a (click)="toRegisterPage()"> Napravite ga sada.</a>
