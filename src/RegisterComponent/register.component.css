@@ -15,3 +15,8 @@ div.long-center {
     padding: 15px;
     opacity: 0.8;
 }
+
+div.long-center h2 {
+    font-family: "Times New Roman", Times, serif;
+    color: rgb(0, 77, 64);
+}

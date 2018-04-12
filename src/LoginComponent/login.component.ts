@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
     selector: 'login',
@@ -8,9 +9,22 @@ import { Router } from '@angular/router';
 })
 
 export class LoginComponent implements OnInit {
-    constructor(private router:Router) { }
+    loginForm: FormGroup;
 
-    ngOnInit() { }
+    constructor(private router: Router, private fb: FormBuilder) { }
+
+    ngOnInit() {
+        this.loginForm = this.fb.group({
+            username: [null, Validators.compose([Validators.required, Validators.email])],
+            password: [null, Validators.compose([Validators.required, Validators.minLength(2),
+                Validators.maxLength(10)])]
+        });
+    }
+
+    logForm(frm: any) {
+        console.log(frm);
+        console.log(frm.value);
+    }
 
     toRegisterPage() {
         this.router.navigate(['registracija']);

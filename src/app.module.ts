@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
@@ -18,7 +18,7 @@ import { FooterComponent } from "./FooterComponent/footer.component";
 import { HeaderComponent } from "./HeaderComponent/header.component";
 
 @NgModule({
-    imports: [BrowserModule, BrowserAnimationsModule, FormsModule, RouterModule.forRoot(routes), 
+    imports: [BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(routes), 
         MatFormFieldModule, MatInputModule, MatButtonModule, MatCheckboxModule, MatSelectModule ],
     declarations: [RootComponent, RegisterComponent, LoginComponent, FooterComponent, HeaderComponent],
     bootstrap: [RootComponent]

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
     selector: 'register',
@@ -13,8 +14,9 @@ export class RegisterComponent implements OnInit {
     step2: boolean;
     step3: boolean;
     step4: boolean;
+    registrationForm: FormGroup;
 
-    constructor(private router: Router) { }
+    constructor(private router: Router, private fb: FormBuilder) { }
 
     ngOnInit() {
         this.step1 = true;
