@@ -3,11 +3,47 @@ import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatSelectModule } from '@angular/material/select';
+import {
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatStepperModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatFormFieldModule,
+} from '@angular/material';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtModule } from "@auth0/angular-jwt";
+import { AuthGuardService } from "./AuthGuards/auth-guard.service";
+import { TokenService } from "./LoginComponent/token.service";
+import { LoginGuardService } from "./AuthGuards/login-auth-guard.service";
+import { TokenInterceptorService } from "./AuthGuards/token-interceptor.service";
 
 import { routes } from "./app.routes";
 
@@ -16,11 +52,21 @@ import { RegisterComponent } from "./RegisterComponent/register.component";
 import { LoginComponent } from "./LoginComponent/login.component";
 import { FooterComponent } from "./FooterComponent/footer.component";
 import { HeaderComponent } from "./HeaderComponent/header.component";
+import { HomeComponent } from "./HomeComponent/home.component";
 
 @NgModule({
-    imports: [BrowserModule, BrowserAnimationsModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(routes), 
-        MatFormFieldModule, MatInputModule, MatButtonModule, MatCheckboxModule, MatSelectModule ],
-    declarations: [RootComponent, RegisterComponent, LoginComponent, FooterComponent, HeaderComponent],
+    imports: [BrowserModule, BrowserAnimationsModule, FormsModule, HttpClientModule, ReactiveFormsModule, RouterModule.forRoot(routes),
+        MatFormFieldModule, MatInputModule, MatButtonModule, MatCheckboxModule, MatSelectModule, MatDatepickerModule,
+        MatNativeDateModule, MatSnackBarModule, JwtModule.forRoot({
+            config: {
+                tokenGetter: () => {
+                    return localStorage.getItem('token');
+                },
+                whitelistedDomains: ['localhost:8080']
+            }
+        })],
+    declarations: [RootComponent, RegisterComponent, LoginComponent, FooterComponent, HeaderComponent, HomeComponent],
+    providers: [AuthGuardService, TokenService, LoginGuardService, { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true }],
     bootstrap: [RootComponent]
 })
 export class AppModule { } 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
     selector: 'register',
@@ -23,6 +23,38 @@ export class RegisterComponent implements OnInit {
         this.step2 = false;
         this.step3 = false;
         this.step4 = false;
+
+        this.registrationForm = this.fb.group({
+            email: [null, Validators.compose([Validators.required, Validators.email])],
+            password: [null, Validators.compose([Validators.required, Validators.minLength(2),
+                Validators.maxLength(15)])],
+            confirmPassword: [null, Validators.compose([Validators.required, Validators.minLength(2),
+                Validators.maxLength(15)])],
+            nameOfAgency:  [null, Validators.required],
+            fullNameOfAgency: [null, Validators.required],
+            pib: [null, Validators.required],
+            IDNumberOfAgency: [null, Validators.required],
+            accountNumber: [null, Validators.required],
+            codeoOfActivityWithDescription: [null, Validators.required],
+            registerDate: [null, Validators.required],
+            companyCityAndZipCode: [null, Validators.required],
+            companyStreetName: [null, Validators.required],
+            companyStreetNumber: [null, Validators.required],
+            companyPhoneNumber: [null, Validators.required],
+            companyEmail:  [null, Validators.compose([Validators.required, Validators.email])],
+            firstName: [null, Validators.required],
+            lastName: [null, Validators.required],
+            citizenship: [null, Validators.required],
+            jmbg: [null, Validators.required],
+            passportNumber: [null, Validators.required],
+            qualifications: [null, Validators.required],
+            gender: [null, Validators.required],
+            workingRelationship: [null, Validators.required],
+            city: [null, Validators.required],
+            address: [null, Validators.required],
+            streetNumberAddress: [null, Validators.required],
+            personalEmail:  [null, Validators.compose([Validators.required, Validators.email])]
+        });
     }
 
     toStepOne() {
@@ -46,11 +78,11 @@ export class RegisterComponent implements OnInit {
     }
 
     goBack() {
-        if(this.step1) {
+        if (this.step1) {
             this.router.navigate(['']);
-        } else if(this.step2) {
+        } else if (this.step2) {
             this.toStepOne();
-        } else if(this.step3){
+        } else if (this.step3) {
             this.toStepTwo();
         } else {
             this.toStepThree();
