@@ -11,3 +11,9 @@ body {
     background-color: rgb(247, 247, 247); 
     /* background: linear-gradient(to bottom right, rgba(173, 216, 230, 0.3), rgba(173, 216, 230, 0.8)); */
 }
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}

@@ -10,13 +10,13 @@
             </div>
 
             <hr class="login_type" />
-            <form [formGroup]="loginForm" (submit)="logForm(loginForm)">
+            <form [formGroup]="loginForm" (submit)="login(loginForm)">
                 <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xs-12">
                     <mat-form-field class="almost-full-width">
-                        <input type="email" matInput placeholder="E-mail" formControlName="username">
-                        <mat-error *ngIf="loginForm.get('username').hasError('required')">E-mail je neophodan.</mat-error>
-                        <mat-error *ngIf="loginForm.get('username').hasError('email') 
-                            && !loginForm.get('username').hasError('required')">E-mail je pogrešnog formata.</mat-error>
+                        <input type="email" matInput placeholder="E-mail" formControlName="email">
+                        <mat-error *ngIf="loginForm.get('email').hasError('required')">E-mail je neophodan.</mat-error>
+                        <mat-error *ngIf="loginForm.get('email').hasError('email') 
+                            && !loginForm.get('email').hasError('required')">E-mail je pogrešnog formata.</mat-error>
                     </mat-form-field>
                     <mat-form-field class="almost-full-width">
                         <input type="password" matInput placeholder="Lozinka" formControlName="password">

@@ -21,16 +21,15 @@ export class LoginComponent implements OnInit {
         private tokenService: TokenService, public snackBar: MatSnackBar) { }
 
     ngOnInit() {
-       // this.loginService.logout();
         this.loginForm = this.fb.group({
-            username: [null, Validators.required],
+            email: [null, Validators.compose([Validators.required, Validators.email])],
             password: [null, Validators.compose([Validators.required, Validators.minLength(2),
             Validators.maxLength(10)])]
         });
     }
 
-    logForm(frm: any) {
-        this.loginService.login(new UserLogin(frm.value.username, frm.value.password))
+    login(frm: any) {
+        this.loginService.login(new UserLogin(frm.value.email, frm.value.password))
             .subscribe(response => {
                 if (response) {
                     this.router.navigate(['početna']);
