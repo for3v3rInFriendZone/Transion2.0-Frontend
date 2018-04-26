@@ -15,9 +15,13 @@
                 <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xs-12">
                     <mat-form-field class="almost-full-width">
                         <input type="email" matInput placeholder="E-mail" formControlName="email">
+                        <mat-error *ngIf="registrationForm.get('email').hasError('required')">E-mail je neophodan.</mat-error>
+                        <mat-error *ngIf="registrationForm.get('email').hasError('email') 
+                            && !registrationForm.get('email').hasError('required')">E-mail je pogrešnog formata.</mat-error>
                     </mat-form-field>
                     <mat-form-field class="almost-full-width">
                         <input type="password" matInput placeholder="Lozinka" formControlName="password">
+                        <mat-error *ngIf="registrationForm.get('password').hasError('required')">Lozinka je neophodna.</mat-error>
                     </mat-form-field>
                     <mat-form-field class="almost-full-width">
                         <input type="password" matInput placeholder="Potvrdite lozinku" formControlName="confirmPassword">
@@ -34,7 +38,7 @@
     </div>
 
     <div class="row" *ngIf="!step1">
-        <div class="long-center animated fadeIn delay-0.7s">
+        <div class="long-center">
             <div align="center">
                 <figure class="logo">
                     <img src="../../assets/images/Transion2_logo.png" class="img-circle img-responsive" height="150px" width="150px" />
@@ -44,63 +48,70 @@
 
             <hr class="login_type" />
 
-            <form *ngIf="step2" [formGroup]="registrationForm">
-                <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xs-12">
-                    <mat-form-field class="almost-full-width">
-                        <input type="text" matInput placeholder="Ime" formControlName="firstName">
-                    </mat-form-field>
-                    <mat-form-field class="almost-full-width">
-                        <input type="text" matInput placeholder="Ime jednog roditelja" formControlName="parentsName">
-                    </mat-form-field>
-                    <mat-form-field class="almost-full-width">
-                        <input type="text" matInput placeholder="Prezime" formControlName="lastName">
-                    </mat-form-field>
-                    <mat-form-field class="almost-full-width">
-                        <input type="text" matInput placeholder="Državljanstvo" formControlName="citizenship">
-                    </mat-form-field>
-                    <mat-form-field class="almost-full-width">
-                        <input type="text" matInput placeholder="Pol" formControlName="gender">
-                    </mat-form-field>
-                    <mat-form-field class="almost-full-width">
-                        <input type="text" matInput placeholder="Obrazovanje" formControlName="qualifications">
-                    </mat-form-field>
-                    <mat-form-field class="almost-full-width">
-                        <input type="number" matInput placeholder="JMBG" formControlName="jmbg">
-                    </mat-form-field>
-                </div>
-                <div align="center">
-                    <button (click)="toStepThree()" mat-raised-button color="primary">Sledeći korak</button>
-                </div>
-                <div style="margin-top: 30px;" align="center">
-                    <button mat-button (click)="goBack()">Nazad</button>
-                </div>
-            </form>
+            <div class="animated fadeIn delay-0.7s" *ngIf="step2">
+                <form [formGroup]="registrationForm">
+                    <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xs-12">
+                        <mat-form-field class="almost-full-width">
+                            <input type="text" matInput placeholder="Ime" formControlName="firstName">
+                        </mat-form-field>
+                        <mat-form-field class="almost-full-width">
+                            <input type="text" matInput placeholder="Ime jednog roditelja" formControlName="parentsName">
+                        </mat-form-field>
+                        <mat-form-field class="almost-full-width">
+                            <input type="text" matInput placeholder="Prezime" formControlName="lastName">
+                        </mat-form-field>
+                        <mat-form-field class="almost-full-width">
+                            <input type="text" matInput placeholder="Državljanstvo" formControlName="citizenship">
+                        </mat-form-field>
+                        <mat-form-field class="almost-full-width">
+                            <input type="text" matInput placeholder="Pol" formControlName="gender">
+                        </mat-form-field>
+                        <mat-form-field class="almost-full-width">
+                            <input type="text" matInput placeholder="Obrazovanje" formControlName="qualifications">
+                        </mat-form-field>
+                        <mat-form-field class="almost-full-width">
+                            <input type="number" matInput placeholder="Broj telefona" formControlName="phoneNumber">
+                        </mat-form-field>
+                        <mat-form-field class="almost-full-width">
+                            <input type="number" matInput placeholder="JMBG" formControlName="jmbg">
+                        </mat-form-field>
+                    </div>
+                    <div align="center">
+                        <button (click)="toStepThree()" mat-raised-button color="primary">Sledeći korak</button>
+                    </div>
+                    <div style="margin-top: 30px;" align="center">
+                        <button mat-button (click)="goBack()">Nazad</button>
+                    </div>
+                </form>
+            </div>
 
-            <form *ngIf="step3" (submit)="confirmRegistration(registrationForm)" [formGroup]="registrationForm">
-                <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xs-12">
-                    <mat-form-field class="almost-full-width">
-                        <input type="text" matInput placeholder="Država" formControlName="country">
-                    </mat-form-field>
-                    <mat-form-field class="almost-full-width">
-                        <input type="text" matInput placeholder="Grad" formControlName="city">
-                    </mat-form-field>
-                    <mat-form-field class="almost-full-width">
-                        <input type="text" matInput placeholder="Ulica" formControlName="streetName">
-                    </mat-form-field>
-                    <mat-form-field class="almost-full-width">
-                        <input type="number" matInput placeholder="Broj ulice" formControlName="streetNumber">
-                    </mat-form-field>
-                    <mat-form-field class="almost-full-width">
-                        <input type="number" matInput placeholder="Poštanski broj" formControlName="zipCode">
-                    </mat-form-field>
-                </div>
-                <div align="center">
-                    <button type="submit" class="register-button">Potvrdi registraciju</button>
-                </div>
-                <div style="margin-top: 30px;" align="center">
-                    <button mat-button (click)="goBack()">Nazad</button>
-                </div>
-            </form>
+            <div class="animated fadeIn delay-0.7s" *ngIf="step3">
+                <form *ngIf="step3" (submit)="confirmRegistration(registrationForm)" [formGroup]="registrationForm">
+                    <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xs-12">
+                        <mat-form-field class="almost-full-width">
+                            <input type="text" matInput placeholder="Država" formControlName="country">
+                        </mat-form-field>
+                        <mat-form-field class="almost-full-width">
+                            <input type="text" matInput placeholder="Grad" formControlName="city">
+                        </mat-form-field>
+                        <mat-form-field class="almost-full-width">
+                            <input type="text" matInput placeholder="Ulica" formControlName="streetName">
+                        </mat-form-field>
+                        <mat-form-field class="almost-full-width">
+                            <input type="number" matInput placeholder="Broj ulice" formControlName="streetNumber">
+                        </mat-form-field>
+                        <mat-form-field class="almost-full-width">
+                            <input type="number" matInput placeholder="Poštanski broj" formControlName="zipCode">
+                        </mat-form-field>
+                    </div>
+                    <div align="center">
+                        <button type="submit" class="register-button">Potvrdi registraciju</button>
+                    </div>
+                    <div style="margin-top: 30px;" align="center">
+                        <button mat-button (click)="goBack()">Nazad</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
