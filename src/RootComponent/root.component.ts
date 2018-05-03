@@ -1,4 +1,5 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'root',
@@ -6,7 +7,7 @@ import { Component, ViewChild, OnInit } from '@angular/core';
     styles: [require('./root.component.css').toString()],
 })
 export class RootComponent implements OnInit {
-    constructor() { }
+    constructor(private router: Router) { }
 
     ngOnInit(): void {
 

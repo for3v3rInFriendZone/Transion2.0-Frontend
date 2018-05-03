@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'header',
-    templateUrl: './header.component.html',
-    styles: [require('./header.component.css').toString()],
+    templateUrl: 'header.component.html'
 })
 
 export class HeaderComponent implements OnInit {

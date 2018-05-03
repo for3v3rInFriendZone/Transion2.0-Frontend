@@ -91,6 +91,7 @@ export class RegisterComponent implements OnInit {
             frm.value.jmbg,
             frm.value.phoneNumber,
             this.authorities,
+            
             address
         );
 

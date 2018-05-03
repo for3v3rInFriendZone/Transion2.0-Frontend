@@ -1,8 +1,13 @@
 <div class="container">
     <div class="row">
-        <router-outlet> </router-outlet>
-    </div>
-    <div class="row">
-        <footer></footer>
+        <div class="row" *ngIf="router.url != '/' && router.url != 'registracija'">
+            <header> </header>
+        </div>
+        <div class="row">
+            <router-outlet> </router-outlet>
+        </div>
+        <div class="row">
+            <footer></footer>
+        </div>
     </div>
 </div>

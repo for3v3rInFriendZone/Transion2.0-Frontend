@@ -65,7 +65,7 @@ import { HomeComponent } from "./HomeComponent/home.component";
                 whitelistedDomains: ['localhost:8080']
             }
         })],
-    declarations: [RootComponent, RegisterComponent, LoginComponent, FooterComponent, HeaderComponent, HomeComponent],
+    declarations: [RootComponent, RegisterComponent, LoginComponent, FooterComponent, HeaderComponent,HomeComponent],
     providers: [AuthGuardService, TokenService, LoginGuardService, { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true }],
     bootstrap: [RootComponent]
 })
