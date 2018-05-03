@@ -1,0 +1,23 @@
+.home-content {
+    position: absolute;
+    height: 100%;
+    min-width: 900px;
+    min-height: 800px;
+    margin-top: 10px;
+    margin-left: 40px;
+    background:white;
+    position: absolute;
+    border: 1px groove rgb(230, 230, 230);
+    border-radius: 3px;
+    padding: 15px; 
+}
+
+.pic {
+    margin: 0px;
+}
+
+.home-background {
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain;
+}

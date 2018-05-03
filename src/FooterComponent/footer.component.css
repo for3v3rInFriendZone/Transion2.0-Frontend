@@ -17,7 +17,7 @@
 }
 
 .copyright a {
-    color: rgb(1, 34, 55);
+    color: rgb(40, 62, 74);
     font-weight: 600;
     text-decoration: none;
     transition: all 0.3s ease-in-out;
@@ -26,5 +26,5 @@
 }
 
 .copyright a:hover {
-    color: rgb(0, 77, 64);
+    color: rgb(38, 93, 12);
 }

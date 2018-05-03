@@ -1,15 +1,33 @@
-<nav class="main-nav-outer animated fadeInDown" id="navbarPopup">
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-left main-nav">
-        <li style="font-size: 26px;"> <span class="img-text" >Transion </span></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right main-nav">
-        <li> <span class="noPointer" >Welcome </span> </li>
-        <li (click)="userDetails()"> <span class="username">{{userEmail}} </span> </li>
-        <li (click)="logout()"> 
-          <span class="logout">Log out  <i class="fa fa-sign-out"></i> </span>
-        </li>
-      </ul>
+<nav class="navbar navbar-expand-sm sticky-top animated fadeInDown">
+    <div class="navbar-content">
+        <a class="navbar-brand" (click)="toHomePage()">Transion</a>
+        <ul class="nav navbar-nav navbar-right main-nav">
+            <li>
+                <a>
+                    <i class="fa fa-file-text-o" aria-hidden="true"> Fakture </i>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <i class="fa fa-barcode" aria-hidden="true"> Fiskalni račun </i>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <i class="fa fa-medkit" aria-hidden="true"> Zdravstvene knjižice </i>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <i class="fa fa-suitcase" aria-hidden="true"> Moja agencija </i>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <i class="fa fa-user-o" aria-hidden="true"> Marko</i>
+                </a>
+            </li>
+            
+        </ul>
     </div>
-</nav> 
-
+</nav>
