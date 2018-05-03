@@ -63,3 +63,9 @@
     padding-left: 10px;
     margin-left: -10px;
 }
+
+.fa.fa-arrow-left {
+    border-left: 1px solid whitesmoke;
+    padding-left: 10px;
+    margin-left: -10px;
+}

@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { UserLogin } from './userLogin';
 import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class LoginService {
     private readonly SERVER: string;
     private token: string;
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private router: Router) {
         this.SERVER = "http://localhost:8080/";
     }
 
@@ -29,5 +30,6 @@ export class LoginService {
     logout(): void {
         // clear token remove user from local storage to log user out
         localStorage.removeItem('token');
+        this.router.navigate(['/']);
     }
 }

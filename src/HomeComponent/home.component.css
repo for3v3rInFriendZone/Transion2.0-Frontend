@@ -1,13 +1,12 @@
 .home-content {
-    position: absolute;
-    height: 100%;
+    position: relative;
+    background-image: url('../../assets/images/main-background.jpg');
     min-width: 900px;
     min-height: 800px;
     margin-top: 10px;
     margin-left: 40px;
     background:white;
-    position: absolute;
-    border: 1px groove rgb(230, 230, 230);
+    border: 1px groove rgb(180, 180, 180);
     border-radius: 3px;
     padding: 15px; 
 }
@@ -16,8 +15,9 @@
     margin: 0px;
 }
 
-.home-background {
-    width: 100%; 
-    height: 100%; 
-    object-fit: contain;
+.home-welcome-text {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    color: blue;
+    text-align: center;
 }
