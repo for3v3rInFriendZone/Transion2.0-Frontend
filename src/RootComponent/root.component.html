@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="row" *ngIf="router.url != '/' && router.url != '/registracija'">
+        <div class="row" *ngIf="router.url != '/' && router.url != '/registracija' && !router.url.includes('/potvrda/')">
             <header> </header>
         </div>
         <div class="row">

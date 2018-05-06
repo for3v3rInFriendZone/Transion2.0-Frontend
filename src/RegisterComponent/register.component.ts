@@ -98,13 +98,13 @@ export class RegisterComponent implements OnInit {
         this.registerService.register(userRegisterObject)
         .subscribe( result => {
             this.snackBar.open("Email je poslat na vašu adresu", "Molimo Vas da aktivirate Vaš profil.", {
-                duration: 2500
+                duration: 3500
             });
             this.router.navigate(['']);
         },
         err => {
             this.snackBar.open("Neuspešna registracija", "Probajte opet.", {
-                duration: 2500
+                duration: 3500
             });
         });
     }
