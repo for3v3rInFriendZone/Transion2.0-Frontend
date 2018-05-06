@@ -18,7 +18,8 @@ export class HeaderComponent implements OnInit {
     constructor(private router: Router, private tokenService: TokenService, private loginService: LoginService) { } 
 
     ngOnInit() {
-        this.user = this.decodeToken();
+        var decodedToken = this.decodeToken();
+        this.getLogedUser(decodedToken.sub);
         this.userOptionsOff = true;
         this.userOptionsOn = false;
      }
@@ -39,6 +40,13 @@ export class HeaderComponent implements OnInit {
 
     decodeToken() {
         return this.tokenService.getTokenPayload();
+    }
+
+    getLogedUser(username: string) {
+        this.loginService.getUserByUsername(username)
+        .subscribe(result => {
+            this.user = result;
+        });
     }
 
     logout() {

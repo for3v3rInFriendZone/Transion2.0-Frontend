@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpResponse, HttpParams } from '@angular/common/http';
 import { UserLogin } from './userLogin';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
@@ -31,5 +31,10 @@ export class LoginService {
         // clear token remove user from local storage to log user out
         localStorage.removeItem('token');
         this.router.navigate(['/']);
+    }
+
+    getUserByUsername(username: string) {
+        let params = new HttpParams().set("username", username);
+        return this.http.get(this.SERVER + "api/transionUser/findemail", {params: params});
     }
 }

@@ -24,7 +24,7 @@
             </li>
             <li>
                 <a>
-                    <i class="fa fa-user-o" aria-hidden="true" (click)="switchUserOptions()"> Marko</i>
+                    <i class="fa fa-user-o" aria-hidden="true" (click)="switchUserOptions()" *ngIf="!!user"> {{user.firstname}}</i>
                 </a>
             </li>
         </ul>

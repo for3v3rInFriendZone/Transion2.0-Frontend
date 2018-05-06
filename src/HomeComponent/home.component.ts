@@ -11,10 +11,5 @@ export class HomeComponent implements OnInit {
     constructor(private http: HttpClient) { }
 
     ngOnInit() {
-        this.http.get("http://localhost:8080/api/transionUser")
-        .subscribe( data => {
-            var users = data;
-            console.log(users);
-        });
     }
 }
