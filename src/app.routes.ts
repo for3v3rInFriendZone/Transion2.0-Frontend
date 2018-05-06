@@ -12,7 +12,7 @@ export const routes: Routes = [
     { path: '', component: LoginComponent, canActivate: [LoginGuardService] },
     { path: 'registracija', component: RegisterComponent },
     { path: 'početna', component: HomeComponent, canActivate: [AuthGuardService] },
-    { path: 'potvrda/:userId', component: ProfileActivationComponent },
+    { path: 'potvrda/:userId/:linkExpirationDate', component: ProfileActivationComponent },
 
     { path: '**', redirectTo: ''}
 ]
