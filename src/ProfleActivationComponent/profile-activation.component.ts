@@ -18,6 +18,7 @@ export class ProfileActivationComponent implements OnInit {
     constructor(private profileService: ProfileActivationService, private aRouter: ActivatedRoute) { }
 
     ngOnInit() {
+        this.activationSuccess = null;
         this.aRouter.params.subscribe( params => {
             this.id = params['userId'];
             this.linkExpirationDate = +params['linkExpirationDate'];

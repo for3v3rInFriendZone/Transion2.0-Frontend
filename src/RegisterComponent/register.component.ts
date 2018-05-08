@@ -128,7 +128,7 @@ export class RegisterComponent implements OnInit {
             frm.value.firstName,
             frm.value.lastName,
             frm.value.email,
-            frm.value.parentsname,
+            frm.value.parentsName,
             frm.value.citizenship,
             frm.value.gender,
             frm.value.qualifications,
