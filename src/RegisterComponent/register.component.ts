@@ -24,8 +24,8 @@ export class RegisterComponent implements OnInit {
     registrationForm: FormGroup;
     authorities: string[];
 
-    constructor(private router: Router, private fb: FormBuilder, private registerService: RegisterService, 
-                private snackBar: MatSnackBar) { }
+    constructor(private router: Router, private fb: FormBuilder, private registerService: RegisterService,
+        private snackBar: MatSnackBar) { }
 
     ngOnInit() {
         this.step1 = true;
@@ -36,12 +36,16 @@ export class RegisterComponent implements OnInit {
         this.authorities = [];
         this.authorities.push("User");
 
+        this.createForm();
+    }
+
+    createForm() {
         this.registrationForm = this.fb.group({
             email: [null, Validators.compose([Validators.required, Validators.email])],
             password: [null, Validators.required],
             confirmPassword: [null, Validators.required],
-            country:  [null, Validators.required],
-            zipCode:  [null, Validators.required],
+            country: [null, Validators.required],
+            zipCode: [null, Validators.required],
             firstName: [null, Validators.required],
             parentsName: [null, Validators.required],
             lastName: [null, Validators.required],
@@ -98,7 +102,7 @@ export class RegisterComponent implements OnInit {
     }
 
     confirmRegistration(frm: any) {
-        var address = new Address (
+        var address = new Address(
             frm.value.country,
             frm.value.city,
             frm.value.streetName,
@@ -141,17 +145,17 @@ export class RegisterComponent implements OnInit {
         );
 
         this.registerService.register(userRegisterObject)
-        .subscribe( result => {
-            this.snackBar.open("Email je poslat na vašu adresu", "Molimo Vas da aktivirate Vaš profil.", {
-                duration: 3500
-            });
-            this.router.navigate(['']);
-        },
-        err => {
-            this.snackBar.open("Neuspešna registracija", "Probajte opet.", {
-                duration: 3500
-            });
-        });
+            .subscribe(result => {
+                this.snackBar.open("Email je poslat na vašu adresu", "Molimo Vas da aktivirate Vaš profil.", {
+                    duration: 3500
+                });
+                this.router.navigate(['']);
+            },
+                err => {
+                    this.snackBar.open("Neuspešna registracija", "Probajte opet.", {
+                        duration: 3500
+                    });
+                });
     }
 
     goBack() {
@@ -159,7 +163,7 @@ export class RegisterComponent implements OnInit {
             this.router.navigate(['']);
         } else if (this.step2) {
             this.toStepOne();
-        } else if (this.step3){
+        } else if (this.step3) {
             this.toStepTwo();
         } else {
             this.toStepThree();

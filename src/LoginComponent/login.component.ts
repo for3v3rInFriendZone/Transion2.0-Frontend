@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { TokenService } from './token.service';
@@ -21,28 +21,57 @@ export class LoginComponent implements OnInit {
         private tokenService: TokenService, private snackBar: MatSnackBar) { }
 
     ngOnInit() {
+        this.createForm();
+    }
+
+    /**
+     * Creating form for HTML page.
+     */
+    createForm() {
         this.loginForm = this.fb.group({
-            email: [null, Validators.compose([Validators.required, Validators.email])],
-            password: [null, Validators.compose([Validators.required, Validators.minLength(2),
-            Validators.maxLength(10)])]
+            'username': new FormControl('', [
+                Validators.required,
+                Validators.email
+            ]),
+            'password': new FormControl('', [
+                Validators.required,
+                Validators.pattern("^[a-zA-Z0-9!@#$%^&*]{2,50}$")
+            ])
         });
     }
 
-    login(frm: any) {
-        this.loginService.login(new UserLogin(frm.value.email, frm.value.password))
-            .subscribe(response => {
-                if (response) {
-                    this.router.navigate(['početna']);
-                }
-            },
-            err => {
-                this.snackBar.open("Neuspešno logovanje", "Probajte opet.", {
-                    duration: 2500
-                });
-            });
+    /**
+     * Validates and does a login call to server.
+     * @param frm FormGroup responsible for creating form.
+     */
+    login(frm: FormGroup) {
+        this.loginForm.get('username').markAsTouched();
+        this.loginForm.get('password').markAsTouched();
+
+        if (this.loginForm.valid) {
+            this.loginService.login(new UserLogin(frm.value.username, frm.value.password))
+                .subscribe(response => {
+                    if (response) {
+                        this.router.navigate(['početna']);
+                    }
+                },
+                    err => {
+                        this.snackBar.open("Neuspešno logovanje", "Probajte opet.", {
+                            duration: 2500
+                        });
+                    });
+        }
     }
 
+    /**
+     * Navigates to registration page.
+     */
     toRegisterPage() {
         this.router.navigate(['registracija']);
     }
+
+    //Access any form control through the get method on its parent group, 
+    //but sometimes it's useful to define getters as shorthands for the template.
+    get username() { return this.loginForm.get('username'); }
+    get password() { return this.loginForm.get('password'); }
 }
