@@ -11,20 +11,28 @@
 
             <hr class="login_type" />
 
-            <form [formGroup]="registrationForm">
+            <form [formGroup]="registrationFormStep1">
                 <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xs-12">
                     <mat-form-field>
                         <input type="email" matInput placeholder="E-mail" formControlName="email">
-                        <mat-error *ngIf="registrationForm.get('email').hasError('required')">E-mail je neophodan.</mat-error>
-                        <mat-error *ngIf="registrationForm.get('email').hasError('email') 
-                            && !registrationForm.get('email').hasError('required')">E-mail je pogrešnog formata.</mat-error>
+                        <mat-error *ngIf="email.invalid && (email.dirty || email.touched)">
+                            <ng-container *ngIf="email.errors?.required"> E-mail je neophodan. </ng-container>
+                            <ng-container *ngIf="!email.errors?.required && email.errors?.email"> E-mail je pogrešnog formata. </ng-container>
+                        </mat-error>
                     </mat-form-field>
                     <mat-form-field>
                         <input type="password" matInput placeholder="Lozinka" formControlName="password">
-                        <mat-error *ngIf="registrationForm.get('password').hasError('required')">Lozinka je neophodna.</mat-error>
+                        <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">
+                            <ng-container *ngIf="password.errors?.required"> Lozinka je neophodna. </ng-container>
+                            <ng-container *ngIf="password.errors?.pattern"> Lozinka mora sadrzati minimum 7 karaktera. </ng-container>
+                        </mat-error>
                     </mat-form-field>
                     <mat-form-field>
                         <input type="password" matInput placeholder="Potvrdite lozinku" formControlName="confirmPassword">
+                        <mat-error *ngIf="confirmPassword.dirty || confirmPassword.touched">
+                            <ng-container *ngIf="confirmPassword.errors?.required"> Potvrda lozinke je neophodna. </ng-container>
+                            <ng-container *ngIf="confirmPassword.errors?.MatchPassword"> Loznike se ne poklapaju. </ng-container>
+                        </mat-error>
                     </mat-form-field>
                 </div>
                 <div align="center">
@@ -53,25 +61,40 @@
             <hr class="login_type" />
 
             <div class="animated fadeIn delay-0.7s" *ngIf="step2">
-                <form [formGroup]="registrationForm">
+                <form [formGroup]="registrationFormStep2">
                     <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xs-12">
                         <mat-form-field>
                             <input type="text" matInput placeholder="Ime" formControlName="firstName">
+                            <mat-error *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+                                <ng-container *ngIf="firstName.errors?.required"> Vase ime je neophodno. </ng-container>
+                            </mat-error>
                         </mat-form-field>
                         <mat-form-field>
                             <input type="text" matInput placeholder="Prezime" formControlName="lastName">
+                            <mat-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+                                <ng-container *ngIf="lastName.errors?.required"> Vase prezime je neophodno. </ng-container>
+                            </mat-error>
                         </mat-form-field>
                         <mat-form-field>
                             <input type="text" matInput placeholder="Ime jednog roditelja" formControlName="parentsName">
+                            <mat-error *ngIf="parentsName.invalid && (parentsName.dirty || parentsName.touched)">
+                                <ng-container *ngIf="parentsName.errors?.required"> Ime jednog od roditelja je neophodno. </ng-container>
+                            </mat-error>
                         </mat-form-field>
                         <mat-form-field>
                             <input type="text" matInput placeholder="Državljanstvo" formControlName="citizenship">
+                            <mat-error *ngIf="citizenship.invalid && (citizenship.dirty || citizenship.touched)">
+                                <ng-container *ngIf="citizenship.errors?.required"> Drzavljanstvo je neophodno. </ng-container>
+                            </mat-error>
                         </mat-form-field>
                         <mat-form-field>
                             <mat-select placeholder="Pol" formControlName="gender">
                                 <mat-option value="Muški">Muški</mat-option>
                                 <mat-option value="Ženski">Ženski</mat-option>
                             </mat-select>
+                            <mat-error *ngIf="gender.invalid && (gender.dirty || gender.touched)">
+                                <ng-container *ngIf="gender.errors?.required"> Pol je neophodan. </ng-container>
+                            </mat-error>
                         </mat-form-field>
                         <mat-form-field>
                             <mat-select placeholder="Obrazovanje" formControlName="qualifications">
@@ -83,13 +106,23 @@
                                 <mat-option value="Master(Magistar)">Master(Magistar)</mat-option>
                                 <mat-option value="Doktor nauka">Doktor nauka</mat-option>
                             </mat-select>
+                            <mat-error *ngIf="qualifications.invalid && (qualifications.dirty || qualifications.touched)">
+                                <ng-container *ngIf="qualifications.errors?.required"> Obrazovanje je neophodno. </ng-container>
+                            </mat-error>
                         </mat-form-field>
                         <mat-form-field>
                             <span class="prefix" matPrefix>+381 &nbsp;</span>
                             <input type="number" matInput placeholder="Broj telefona" formControlName="phoneNumber">
+                            <mat-error *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)">
+                                <ng-container *ngIf="phoneNumber.errors?.required"> Broj telefona je neophodan. </ng-container>
+                            </mat-error>
                         </mat-form-field>
                         <mat-form-field>
-                            <input type="number" matInput placeholder="JMBG" formControlName="jmbg" maxlength="13">
+                            <input type="number" matInput placeholder="JMBG" formControlName="jmbg">
+                            <mat-error *ngIf="jmbg.invalid && (jmbg.dirty || jmbg.touched)">
+                                <ng-container *ngIf="jmbg.errors?.required"> Broj telefona je neophodan. </ng-container>
+                                <ng-container *ngIf="jmbg.errors?.pattern"> JMBG mora sadrzati tacno 13 cifara. </ng-container>
+                            </mat-error>
                         </mat-form-field>
                     </div>
                     <div align="center">
@@ -104,7 +137,7 @@
             </div>
 
             <div class="animated fadeIn delay-0.7s" *ngIf="step3">
-                <form [formGroup]="registrationForm">
+                <form [formGroup]="registrationFormStep3">
                     <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xs-12">
                         <mat-form-field>
                             <input type="text" matInput placeholder="Država" formControlName="country">
