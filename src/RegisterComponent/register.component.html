@@ -84,7 +84,7 @@
                         <mat-form-field>
                             <input type="text" matInput placeholder="Državljanstvo" formControlName="citizenship">
                             <mat-error *ngIf="citizenship.invalid && (citizenship.dirty || citizenship.touched)">
-                                <ng-container *ngIf="citizenship.errors?.required"> Drzavljanstvo je neophodno. </ng-container>
+                                <ng-container *ngIf="citizenship.errors?.required"> Državljanstvo je neophodno. </ng-container>
                             </mat-error>
                         </mat-form-field>
                         <mat-form-field>
@@ -141,19 +141,31 @@
                     <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xs-12">
                         <mat-form-field>
                             <input type="text" matInput placeholder="Država" formControlName="country">
+                            <mat-error *ngIf="country.invalid && (country.dirty || country.touched)">
+                                <ng-container *ngIf="country.errors?.required"> Država je neophodan. </ng-container>
+                            </mat-error>
                         </mat-form-field>
                         <mat-form-field>
                             <input type="text" matInput placeholder="Grad" formControlName="city">
+                            <mat-error *ngIf="city.invalid && (city.dirty || city.touched)">
+                                <ng-container *ngIf="city.errors?.required"> Grad je neophodan. </ng-container>
+                            </mat-error>
                         </mat-form-field>
                         <div class="row">
                             <div class="col col-md-6">
                                 <mat-form-field>
                                     <input type="text" matInput placeholder="Ulica" formControlName="streetName">
+                                    <mat-error *ngIf="streetName.invalid && (streetName.dirty || streetName.touched)">
+                                        <ng-container *ngIf="streetName.errors?.required"> Naziv ulice je neophodan. </ng-container>
+                                    </mat-error>
                                 </mat-form-field>
                             </div>
                             <div class="col col-md-6">
                                 <mat-form-field>
                                     <input type="number" matInput placeholder="Broj ulice" formControlName="streetNumber">
+                                    <mat-error *ngIf="streetNumber.invalid && (streetNumber.dirty || streetNumber.touched)">
+                                        <ng-container *ngIf="streetNumber.errors?.required"> Broj ulice je neophodan. </ng-container>
+                                    </mat-error>
                                 </mat-form-field>
                             </div>
                         </div>
@@ -161,6 +173,9 @@
                             <div class="col col-md-5">
                                 <mat-form-field>
                                     <input type="number" matInput placeholder="Poštanski broj" formControlName="zipCode">
+                                    <mat-error *ngIf="zipCode.invalid && (zipCode.dirty || zipCode.touched)">
+                                        <ng-container *ngIf="zipCode.errors?.required"> Poštanski broj je neophodan. </ng-container>
+                                    </mat-error>
                                 </mat-form-field>
                             </div>
                         </div>
@@ -176,38 +191,67 @@
                 </form>
             </div>
             <div class="animated fadeIn delay-0.7s" *ngIf="step4">
-                <form (submit)="confirmRegistration(registrationForm)" [formGroup]="registrationForm">
+                <form (submit)="confirmRegistration()" [formGroup]="registrationFormStep4">
                     <div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xs-12">
                         <mat-form-field>
                             <input type="text" matInput placeholder="Naziv agencije" formControlName="agencyName">
+                            <mat-error *ngIf="agencyName.invalid && (agencyName.dirty || agencyName.touched)">
+                                <ng-container *ngIf="agencyName.errors?.required"> Naziv agencije je neophodan. </ng-container>
+                            </mat-error>
                         </mat-form-field>
                         <mat-form-field>
                             <input type="text" matInput placeholder="Pun naziv agencije" formControlName="agencyFullName">
+                            <mat-error *ngIf="agencyFullName.invalid && (agencyFullName.dirty || agencyFullName.touched)">
+                                <ng-container *ngIf="agencyFullName.errors?.required"> Pun naziv agencije je neophodan. </ng-container>
+                            </mat-error>
                         </mat-form-field>
                         <mat-form-field>
                             <input type="number" matInput placeholder="PIB" formControlName="agencyPib">
+                            <mat-error *ngIf="agencyPib.invalid && (agencyPib.dirty || agencyPib.touched)">
+                                <ng-container *ngIf="agencyPib.errors?.required"> PIB je neophodan. </ng-container>
+                            </mat-error>
                         </mat-form-field>
                         <mat-form-field>
                             <input type="number" matInput placeholder="Matični broj agencije" formControlName="agencyUniqueKey">
+                            <mat-error *ngIf="agencyUniqueKey.invalid && (agencyUniqueKey.dirty || agencyUniqueKey.touched)">
+                                <ng-container *ngIf="agencyUniqueKey.errors?.required"> Matični broj agencije je neophodan. </ng-container>
+                            </mat-error>
                         </mat-form-field>
                         <mat-form-field>
                             <input type="number" matInput placeholder="Broj žiro računa" formControlName="agencyAccountNumber">
+                            <mat-error *ngIf="agencyAccountNumber.invalid && (agencyAccountNumber.dirty || agencyAccountNumber.touched)">
+                                <ng-container *ngIf="agencyAccountNumber.errors?.required">Broj žiro računa je neophodan. </ng-container>
+                            </mat-error>
                         </mat-form-field>
                         <mat-form-field>
                             <input type="text" matInput placeholder="Šifra delatnosti sa opisom" formControlName="agencyActivityCodeWithDescription">
+                            <mat-error *ngIf="agencyActivityCodeWithDescription.invalid && (agencyActivityCodeWithDescription.dirty || agencyActivityCodeWithDescription.touched)">
+                                <ng-container *ngIf="agencyActivityCodeWithDescription.errors?.required">Šifra delatnosti sa opisom je neophodna. </ng-container>
+                            </mat-error>
                         </mat-form-field>
                         <mat-form-field>
-                            <input type="date" matInput placeholder="Datum registracije agencije" formControlName="agencyRegistrationDate">
+                            <input matInput [matDatepicker]="picker" placeholder="Datum registracije agencije" formControlName="agencyRegistrationDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                            <mat-error *ngIf="agencyRegistrationDate.invalid && (agencyRegistrationDate.dirty || agencyRegistrationDate.touched)">
+                                <ng-container *ngIf="agencyRegistrationDate.errors?.required">Datum registracije agencije je neophodan. </ng-container>
+                            </mat-error>
                         </mat-form-field>
                         <div class="row">
                             <div class="col col-md-6">
                                 <mat-form-field>
                                     <input type="text" matInput placeholder="Grad" formControlName="agencyCity">
+                                    <mat-error *ngIf="agencyCity.invalid && (agencyCity.dirty || agencyCity.touched)">
+                                        <ng-container *ngIf="agencyCity.errors?.required">Grad je neophodna. </ng-container>
+                                    </mat-error>
                                 </mat-form-field>
                             </div>
                             <div class="col col-md-6">
                                 <mat-form-field>
                                     <input type="number" matInput placeholder="Poštanski broj" formControlName="agencyCityZipCode">
+                                    <mat-error *ngIf="agencyCityZipCode.invalid && (agencyCityZipCode.dirty || agencyCityZipCode.touched)">
+                                        <ng-container *ngIf="agencyCityZipCode.errors?.required">Poštanski broj je neophodna. </ng-container>
+                                    </mat-error>
                                 </mat-form-field>
                             </div>
                         </div>
@@ -215,20 +259,33 @@
                             <div class="col col-md-6">
                                 <mat-form-field>
                                     <input type="text" matInput placeholder="Ulica sedišta agencije" formControlName="agencyStreetName">
+                                    <mat-error *ngIf="agencyStreetName.invalid && (agencyStreetName.dirty || agencyStreetName.touched)">
+                                        <ng-container *ngIf="agencyStreetName.errors?.required">Ulica sedišta agencije je neophodna. </ng-container>
+                                    </mat-error>
                                 </mat-form-field>
                             </div>
                             <div class="col col-md-6">
                                 <mat-form-field>
                                     <input type="number" matInput placeholder="Broj ulice sedišta agencije" formControlName="agencyStreetNumber">
+                                    <mat-error *ngIf="agencyStreetNumber.invalid && (agencyStreetNumber.dirty || agencyStreetNumber.touched)">
+                                        <ng-container *ngIf="agencyStreetNumber.errors?.required">Broj ulice sedišta agencije je neophodna. </ng-container>
+                                    </mat-error>
                                 </mat-form-field>
                             </div>
                         </div>
                         <mat-form-field>
                             <span class="prefix" matPrefix>+381 &nbsp;</span>
                             <input type="number" matInput placeholder="Telefon" formControlName="agencyPhoneNumber">
+                            <mat-error *ngIf="agencyPhoneNumber.invalid && (agencyPhoneNumber.dirty || agencyPhoneNumber.touched)">
+                                <ng-container *ngIf="agencyPhoneNumber.errors?.required">Telefon agencije je neophodan. </ng-container>
+                            </mat-error>
                         </mat-form-field>
                         <mat-form-field>
                             <input type="email" matInput placeholder="E-mail" formControlName="agencyEmail">
+                            <mat-error *ngIf="agencyEmail.invalid && (agencyEmail.dirty || agencyEmail.touched)">
+                                <ng-container *ngIf="agencyEmail.errors?.required"> E-mail je neophodan. </ng-container>
+                                <ng-container *ngIf="agencyEmail.errors?.email"> E-mail nije validan. </ng-container>
+                            </mat-error>
                         </mat-form-field>
                     </div>
                     <div align="center">

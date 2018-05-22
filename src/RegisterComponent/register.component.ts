@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, Form } from '@angular/forms';
 import { TransionUser } from './TransionUser';
 import { RegisterService } from './register.service';
 import { MatSnackBar } from '@angular/material';
@@ -40,6 +40,83 @@ export class RegisterComponent implements OnInit {
 
         this.createForm();
     }
+
+    //#region Public methods
+
+    toStepOne() {
+        this.step1 = true;
+        this.step2 = false;
+        this.step3 = false;
+        this.step4 = false;
+    }
+
+    toStepTwo() {
+        this.markAsTouchedFormGroup1();
+
+        if (this.registrationFormStep1.valid) {
+            this.step1 = false;
+            this.step2 = true;
+            this.step3 = false;
+            this.step4 = false;
+        }
+    }
+
+    toStepThree() {
+        this.markAsTouchedFormGroup2();
+
+        if (this.registrationFormStep2.valid) {
+            this.step2 = false;
+            this.step3 = true;
+            this.step1 = false;
+            this.step4 = false;
+        }
+    }
+
+    toStepFour() {
+        this.markAsTouchedFormGroup3();
+
+        if (this.registrationFormStep3.valid) {
+            this.step4 = true;
+            this.step2 = false;
+            this.step3 = false;
+            this.step1 = false;
+        }
+    }
+
+    confirmRegistration() {
+        this.markAsTouchedFormGroup4();
+        if (this.registrationFormStep4.invalid) {
+            return;
+        }
+        var userRegisterObject = this.createTransionUser();
+
+        this.registerService.register(userRegisterObject)
+            .subscribe(result => {
+                this.snackBar.open("Email je poslat na vašu adresu", "Molimo Vas da aktivirate Vaš profil.", {
+                    duration: 3500
+                });
+                this.router.navigate(['']);
+            },
+                err => {
+                    this.snackBar.open("Neuspešna registracija", "Probajte opet.", {
+                        duration: 3500
+                    });
+                });
+    }
+
+    goBack() {
+        if (this.step1) {
+            this.router.navigate(['']);
+        } else if (this.step2) {
+            this.toStepOne();
+        } else if (this.step3) {
+            this.toStepTwo();
+        } else {
+            this.toStepThree();
+        }
+    }
+
+    //#endregion
 
     //#region Private methods
 
@@ -181,8 +258,8 @@ export class RegisterComponent implements OnInit {
     }
 
     /**
- * Setting form group 1 to be marked as touched when next button is clicked.
- */
+    * Setting form group 1 to be marked as touched when next button is clicked.
+    */
     private markAsTouchedFormGroup1() {
         this.registrationFormStep1.get('email').markAsTouched();
         this.registrationFormStep1.get('password').markAsTouched();
@@ -225,123 +302,86 @@ export class RegisterComponent implements OnInit {
         this.registrationFormStep4.get('agencyAccountNumber').markAsTouched();
         this.registrationFormStep4.get('agencyActivityCodeWithDescription').markAsTouched();
         this.registrationFormStep4.get('agencyRegistrationDate').markAsTouched();
+        this.registrationFormStep4.get('agencyCity').markAsTouched();
         this.registrationFormStep4.get('agencyStreetName').markAsTouched();
         this.registrationFormStep4.get('agencyStreetNumber').markAsTouched();
-        this.registrationFormStep4.get('genagencyCityder').markAsTouched();
+        this.registrationFormStep4.get('agencyCityZipCode').markAsTouched();
         this.registrationFormStep4.get('agencyPhoneNumber').markAsTouched();
         this.registrationFormStep4.get('agencyEmail').markAsTouched();
     }
 
-    //#endregion
-
-    //#region Public methods
-
-    toStepOne() {
-        this.step1 = true;
-        this.step2 = false;
-        this.step3 = false;
-        this.step4 = false;
-    }
-
-    toStepTwo() {
-        this.markAsTouchedFormGroup1();
-
-        if (this.registrationFormStep1.valid) {
-            this.step1 = false;
-            this.step2 = true;
-            this.step3 = false;
-            this.step4 = false;
-        }
-    }
-
-    toStepThree() {
-        this.markAsTouchedFormGroup2();
-
-        if (this.registrationFormStep2.valid) {
-            this.step2 = false;
-            this.step3 = true;
-            this.step1 = false;
-            this.step4 = false;
-        }
-    }
-
-    toStepFour() {
-        this.step4 = true;
-        this.step2 = false;
-        this.step3 = false;
-        this.step1 = false;
-    }
-    //#endregion
-
-
-    confirmRegistration(frm: any) {
-        var address = new Address(
-            frm.value.country,
-            frm.value.city,
-            frm.value.streetName,
-            frm.value.streetNumber,
-            frm.value.zipCode);
-
-        var agency = new Agency(
-            frm.value.agencyName,
-            frm.value.agencyFullName,
-            frm.value.agencyPib,
-            frm.value.agencyUniqueKey,
-            frm.value.agencyAccountNumber,
-            frm.value.agencyActivityCodeWithDescription,
-            frm.value.agencyRegistrationDate,
-            new Address(
-                frm.value.country,
-                frm.value.agencyCity,
-                frm.value.agencyStreetName,
-                frm.value.agencyStreetNumber,
-                frm.value.agencyCityZipCode
-            ),
-            frm.value.agencyPhoneNumber,
-            frm.value.agencyEmail
+    /**
+     * Creating user's Address entity.
+     * 
+     */
+    private createUserAddress(): Address {
+        return new Address(
+            this.country.value,
+            this.city.value,
+            this.streetName.value, 
+            this.streetNumber.value,
+            this.zipCode.value, 
         );
+    }
 
-        var userRegisterObject = new TransionUser(
-            frm.value.firstName,
-            frm.value.lastName,
-            frm.value.email,
-            frm.value.parentsName,
-            frm.value.citizenship,
-            frm.value.gender,
-            frm.value.qualifications,
-            frm.value.password,
-            frm.value.jmbg,
-            frm.value.phoneNumber,
+    /**
+     * Creating Agency entity.
+     * 
+     */
+    private createAgency(): Agency {
+        return new Agency(
+            this.agencyName.value,
+            this.agencyFullName.value, 
+            this.agencyPib.value, 
+            this.agencyUniqueKey.value, 
+            this.agencyAccountNumber.value,
+            this.agencyActivityCodeWithDescription.value, 
+            this.agencyRegistrationDate.value,
+            this.createAgencyAddress(),
+            this.agencyAccountNumber.value,
+            this.agencyEmail.value,
+        );
+    }
+
+    /**
+     * Creating Address entity for the agency.
+     * 
+     */
+    private createAgencyAddress(): Address {
+        return new Address(
+            this.country.value,
+            this.agencyCity.value,
+            this.agencyStreetName.value,
+            this.agencyStreetNumber.value,
+            this.agencyCityZipCode.value, 
+        )
+    }
+
+    /**
+     * Creating TransionUser entity.
+     * 
+     */
+    private createTransionUser(): TransionUser {
+        return new TransionUser(
+            this.firstName.value,
+            this.lastName.value,
+            this.email.value,
+            this.parentsName.value, 
+            this.citizenship.value, 
+            this.gender.value, 
+            this.qualifications.value,
+            this.password.value,
+            this.jmbg.value,
+            this.phoneNumber.value,
             this.authorities,
-            address,
-            agency
-        );
-
-        this.registerService.register(userRegisterObject)
-            .subscribe(result => {
-                this.snackBar.open("Email je poslat na vašu adresu", "Molimo Vas da aktivirate Vaš profil.", {
-                    duration: 3500
-                });
-                this.router.navigate(['']);
-            },
-            err => {
-                this.snackBar.open("Neuspešna registracija", "Probajte opet.", {
-                    duration: 3500
-                });
-            });
+            this.createUserAddress(),
+            this.createAgency()
+        )
     }
 
-    goBack() {
-        if (this.step1) {
-            this.router.navigate(['']);
-        } else if (this.step2) {
-            this.toStepOne();
-        } else if (this.step3) {
-            this.toStepTwo();
-        } else {
-            this.toStepThree();
-        }
-    }
+    //#endregion
+
+    //#region Form groups getters
 
     //Access any form control through the get method on its parent group
 
@@ -375,10 +415,13 @@ export class RegisterComponent implements OnInit {
     get agencyAccountNumber() { return this.registrationFormStep4.get('agencyAccountNumber'); }
     get agencyActivityCodeWithDescription() { return this.registrationFormStep4.get('agencyActivityCodeWithDescription'); }
     get agencyRegistrationDate() { return this.registrationFormStep4.get('agencyRegistrationDate'); }
+    get agencyCity() { return this.registrationFormStep4.get('agencyCity'); }
     get agencyStreetName() { return this.registrationFormStep4.get('agencyStreetName'); }
     get agencyStreetNumber() { return this.registrationFormStep4.get('agencyStreetNumber'); }
     get agencyCityZipCode() { return this.registrationFormStep4.get('agencyCityZipCode'); }
     get genagencyCityder() { return this.registrationFormStep4.get('agencyCity'); }
     get agencyPhoneNumber() { return this.registrationFormStep4.get('agencyPhoneNumber'); }
     get agencyEmail() { return this.registrationFormStep4.get('agencyEmail'); }
+
+    //#endregion
 }
