@@ -24,21 +24,7 @@ export class LoginComponent implements OnInit {
         this.createForm();
     }
 
-    /**
-     * Creating form for HTML page.
-     */
-    createForm() {
-        this.loginForm = this.fb.group({
-            'username': new FormControl('', [
-                Validators.required,
-                Validators.email
-            ]),
-            'password': new FormControl('', [
-                Validators.required,
-                Validators.pattern("^[a-zA-Z0-9!@#$%^&*]{2,50}$")
-            ])
-        });
-    }
+    //#region Public methods
 
     /**
      * Validates and does a login call to server.
@@ -70,8 +56,34 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['registracija']);
     }
 
+    //#endregion
+
+    //#region Private methods
+
+    /**
+     * Creating form for HTML page.
+     */
+    private createForm() {
+        this.loginForm = this.fb.group({
+            'username': new FormControl('', [
+                Validators.required,
+                Validators.email
+            ]),
+            'password': new FormControl('', [
+                Validators.required,
+                Validators.pattern("^[a-zA-Z0-9!@#$%^&*]{2,50}$")
+            ])
+        });
+    }
+
+    //#endregion
+
+    //#region Form groups getters
+
     //Access any form control through the get method on its parent group, 
     //but sometimes it's useful to define getters as shorthands for the template.
     get username() { return this.loginForm.get('username'); }
     get password() { return this.loginForm.get('password'); }
+
+    //#endregion
 }

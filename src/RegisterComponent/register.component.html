@@ -242,7 +242,7 @@
                                 <mat-form-field>
                                     <input type="text" matInput placeholder="Grad" formControlName="agencyCity">
                                     <mat-error *ngIf="agencyCity.invalid && (agencyCity.dirty || agencyCity.touched)">
-                                        <ng-container *ngIf="agencyCity.errors?.required">Grad je neophodna. </ng-container>
+                                        <ng-container *ngIf="agencyCity.errors?.required">Grad je neophodan. </ng-container>
                                     </mat-error>
                                 </mat-form-field>
                             </div>
@@ -250,7 +250,7 @@
                                 <mat-form-field>
                                     <input type="number" matInput placeholder="Poštanski broj" formControlName="agencyCityZipCode">
                                     <mat-error *ngIf="agencyCityZipCode.invalid && (agencyCityZipCode.dirty || agencyCityZipCode.touched)">
-                                        <ng-container *ngIf="agencyCityZipCode.errors?.required">Poštanski broj je neophodna. </ng-container>
+                                        <ng-container *ngIf="agencyCityZipCode.errors?.required">Poštanski broj je neophodan. </ng-container>
                                     </mat-error>
                                 </mat-form-field>
                             </div>
@@ -268,7 +268,7 @@
                                 <mat-form-field>
                                     <input type="number" matInput placeholder="Broj ulice sedišta agencije" formControlName="agencyStreetNumber">
                                     <mat-error *ngIf="agencyStreetNumber.invalid && (agencyStreetNumber.dirty || agencyStreetNumber.touched)">
-                                        <ng-container *ngIf="agencyStreetNumber.errors?.required">Broj ulice sedišta agencije je neophodna. </ng-container>
+                                        <ng-container *ngIf="agencyStreetNumber.errors?.required">Broj ulice sedišta agencije je neophodan. </ng-container>
                                     </mat-error>
                                 </mat-form-field>
                             </div>
