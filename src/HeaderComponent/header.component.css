@@ -33,7 +33,7 @@
 .main-nav li {
     display: inline;
     margin: 0 1px;
-    color: rgb(199, 209, 216) !important;
+    color: rgb(173, 173, 173) !important;
     font-family: 'Serif', sans-serif;
     text-decoration: none;
     line-height: 10px;
@@ -43,7 +43,7 @@
 
 .main-nav li a {
     display: inline-block;
-    color: rgb(199, 209, 216) !important;
+    color: rgb(173, 173, 173) !important;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 15px;
     text-decoration: none;
