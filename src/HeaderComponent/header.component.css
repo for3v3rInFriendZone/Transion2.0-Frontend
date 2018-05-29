@@ -89,8 +89,8 @@
 .navbar-brand {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     border-right: 1px ridge whitesmoke;
-    color: whitesmoke !important;
-    font-size: 22px;
+    color: rgb(104, 151, 82) !important;
+    font-size: 24px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
@@ -100,8 +100,7 @@
 }
 
 .navbar-brand:hover {
-    color: whitesmoke !important;
-    border-right: 3px solid whitesmoke;
+    color: white !important;
     transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;

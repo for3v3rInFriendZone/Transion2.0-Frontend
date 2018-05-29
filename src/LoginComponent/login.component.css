@@ -1,5 +1,5 @@
 .login-container {
-    padding-top: 180px;
+    padding-top: 10%;
 }
 
 div.div-center {
@@ -14,7 +14,7 @@ div.div-center {
 }
 
 div.div-center p a {
-    color: rgb(0, 77, 64);
+    color: rgb(0, 77, 64) !important;
     cursor: pointer;
     font-weight: 600;
     text-decoration: none;
