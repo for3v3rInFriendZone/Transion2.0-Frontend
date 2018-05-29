@@ -9,6 +9,7 @@ import 'rxjs';
 
 import 'jquery';
 import 'bootstrap/dist/js/bootstrap';
+import 'popper.js/dist/popper';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import "@angular/material/prebuilt-themes/deeppurple-amber.css";

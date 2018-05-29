@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm sticky-top animated fadeInDown">
+<!-- <nav class="navbar navbar-expand-sm sticky-top animated fadeInDown">
     <div class="navbar-content">
         <a class="navbar-brand" (click)="toHomePage()">Transion</a>
         <ul class="nav navbar-nav navbar-right main-nav animated fadeInRight" *ngIf="userOptionsOff">
@@ -46,4 +46,55 @@
             </li>
         </ul>
     </div>
-</nav>
+</nav> -->
+
+<header>
+    <nav class="navbar navbar-expand-md fixed-top animated fadeInDown">
+        <a class="navbar-brand" (click)="toHomePage()">Transion </a>
+        <ul class="navbar-nav mx-auto animated fadeInRight" *ngIf="userOptionsOff">
+            <li class="nav-item" [ngClass]="{'nav-element-clicked': isNavActive('fakture')}">
+                <a class="nav-link">
+                    <i [ngClass]="{'nav-element-i': isNavActive('fakture')}" class="fa fa-file-text-o" aria-hidden="true" (click)="goToInvoices()">
+                        Fakture </i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">
+                    <i class="fa fa-money" aria-hidden="true"> Nalozi za prenos </i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">
+                    <i class="fa fa-medkit" aria-hidden="true"> Zdravstvene knjižice </i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">
+                    <i class="fa fa-suitcase" aria-hidden="true"> Moja agencija </i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">
+                    <i class="fa fa-user-o" aria-hidden="true" (click)="switchUserOptions()" *ngIf="!!user"> {{user.firstname}}</i>
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav mx-auto animated fadeInRight" *ngIf="userOptionsOn">
+            <li class="nav-item">
+                <a class="nav-link">
+                    <i class="fa fa-info" aria-hidden="true"> Profilne informacije </i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">
+                    <i class="fa fa-sign-out" aria-hidden="true" (click)="logout()"> Odjavi se </i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link">
+                    <i class="fa fa-arrow-left" aria-hidden="true" (click)="switchUserOptions()"> Nazad </i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>

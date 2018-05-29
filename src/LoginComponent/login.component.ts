@@ -31,8 +31,8 @@ export class LoginComponent implements OnInit {
      * @param frm FormGroup responsible for creating form.
      */
     login(frm: FormGroup) {
-        this.loginForm.get('username').markAsTouched();
-        this.loginForm.get('password').markAsTouched();
+        this.username.markAsTouched();
+        this.password.markAsTouched();
 
         if (this.loginForm.valid) {
             this.loginService.login(new UserLogin(frm.value.username, frm.value.password))

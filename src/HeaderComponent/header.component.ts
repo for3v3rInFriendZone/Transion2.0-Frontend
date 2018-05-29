@@ -4,7 +4,7 @@ import { TokenService } from '../LoginComponent/token.service';
 import { LoginService } from '../LoginComponent/login.service';
 
 @Component({
-    selector: 'header',
+    selector: 'header-component',
     templateUrl: 'header.component.html',
     styles: [require('./header.component.css').toString()],
     providers: [TokenService, LoginService]

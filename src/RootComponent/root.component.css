@@ -1,15 +1,16 @@
+* {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: 0;
+}
+  
 html {
-    height: 100%;
-    box-sizing: border-box;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-    position: relative;
-    margin: 0;
-    padding-bottom: 7rem;
-    min-height: 100%;
     background-color: whitesmoke;
-    /* background: linear-gradient(to bottom right, rgba(173, 216, 230, 0.3), rgba(173, 216, 230, 0.8)); */
+    margin-bottom: 80px;
 }
 
 input[type=number]::-webkit-inner-spin-button, 
