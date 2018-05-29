@@ -261,53 +261,53 @@ export class RegisterComponent implements OnInit {
     * Setting form group 1 to be marked as touched when next button is clicked.
     */
     private markAsTouchedFormGroup1() {
-        this.registrationFormStep1.get('email').markAsTouched();
-        this.registrationFormStep1.get('password').markAsTouched();
-        this.registrationFormStep1.get('confirmPassword').markAsTouched();
+        this.email.markAsTouched();
+        this.password.markAsTouched();
+        this.confirmPassword.markAsTouched();
     }
 
     /**
      * Setting form group 2 to be marked as touched when next button is clicked.
      */
     private markAsTouchedFormGroup2() {
-        this.registrationFormStep2.get('firstName').markAsTouched();
-        this.registrationFormStep2.get('parentsName').markAsTouched();
-        this.registrationFormStep2.get('lastName').markAsTouched();
-        this.registrationFormStep2.get('citizenship').markAsTouched();
-        this.registrationFormStep2.get('jmbg').markAsTouched();
-        this.registrationFormStep2.get('phoneNumber').markAsTouched();
-        this.registrationFormStep2.get('qualifications').markAsTouched();
-        this.registrationFormStep2.get('gender').markAsTouched();
+        this.firstName.markAsTouched();
+        this.parentsName.markAsTouched();
+        this.lastName.markAsTouched();
+        this.citizenship.markAsTouched();
+        this.jmbg.markAsTouched();
+        this.phoneNumber.markAsTouched();
+        this.qualifications.markAsTouched();
+        this.gender.markAsTouched();
     }
 
     /**
      * Setting form group 3 to be marked as touched when next button is clicked.
      */
     private markAsTouchedFormGroup3() {
-        this.registrationFormStep3.get('city').markAsTouched();
-        this.registrationFormStep3.get('streetName').markAsTouched();
-        this.registrationFormStep3.get('streetNumber').markAsTouched();
-        this.registrationFormStep3.get('country').markAsTouched();
-        this.registrationFormStep3.get('zipCode').markAsTouched();
+        this.city.markAsTouched();
+        this.streetName.markAsTouched();
+        this.streetNumber.markAsTouched();
+        this.country.markAsTouched();
+        this.zipCode.markAsTouched();
     }
 
     /**
      * Setting form group 4 to be marked as touched when next button is clicked.
      */
     private markAsTouchedFormGroup4() {
-        this.registrationFormStep4.get('agencyName').markAsTouched();
-        this.registrationFormStep4.get('agencyFullName').markAsTouched();
-        this.registrationFormStep4.get('agencyPib').markAsTouched();
-        this.registrationFormStep4.get('agencyUniqueKey').markAsTouched();
-        this.registrationFormStep4.get('agencyAccountNumber').markAsTouched();
-        this.registrationFormStep4.get('agencyActivityCodeWithDescription').markAsTouched();
-        this.registrationFormStep4.get('agencyRegistrationDate').markAsTouched();
-        this.registrationFormStep4.get('agencyCity').markAsTouched();
-        this.registrationFormStep4.get('agencyStreetName').markAsTouched();
-        this.registrationFormStep4.get('agencyStreetNumber').markAsTouched();
-        this.registrationFormStep4.get('agencyCityZipCode').markAsTouched();
-        this.registrationFormStep4.get('agencyPhoneNumber').markAsTouched();
-        this.registrationFormStep4.get('agencyEmail').markAsTouched();
+        this.agencyName.markAsTouched();
+        this.agencyFullName.markAsTouched();
+        this.agencyPib.markAsTouched();
+        this.agencyUniqueKey.markAsTouched();
+        this.agencyAccountNumber.markAsTouched();
+        this.agencyActivityCodeWithDescription.markAsTouched();
+        this.agencyRegistrationDate.markAsTouched();
+        this.agencyCity.markAsTouched();
+        this.agencyStreetName.markAsTouched();
+        this.agencyStreetNumber.markAsTouched();
+        this.agencyCityZipCode.markAsTouched();
+        this.agencyPhoneNumber.markAsTouched();
+        this.agencyEmail.markAsTouched();
     }
 
     /**

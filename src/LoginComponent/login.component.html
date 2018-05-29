@@ -1,6 +1,7 @@
+
 <main role="main" class="container">
-    <div class="login-container animated fadeIn delay-1.1s">
-        <div class="div-center">
+    <div class="padding-container animated fadeIn delay-1.1s">
+        <div class="login-div">
             <div align="center">
                 <figure class="logo">
                     <img src="../../assets/images/Transion2_logo.png" class="img-circle img-responsive" height="150px" width="150px" />
@@ -10,10 +11,10 @@
             </div>
 
             <form [formGroup]="loginForm" (submit)="login(loginForm)">
-                <div class="row justify-content-sm-center justify-content-md-center justify-content-lg-center justify-content-xl-center">
+                <div class="row justify-content-center justify-content-sm-center justify-content-md-center justify-content-lg-center justify-content-xl-center">
                     <div class="col-9 col-sm-9 col-md-9 col-lg-9 col-xs-9">
                         <mat-form-field class="almost-full-width">
-                            <input type="email" id="username" matInput placeholder="E-mail" formControlName="username">
+                            <input type="email" id="username" matInput placeholder="E-mail adresa" formControlName="username">
                             <mat-error *ngIf="username.invalid && (username.dirty || username.touched)">
                                 <ng-container *ngIf="username.errors.required"> E-mail je neophodan. </ng-container>
                                 <ng-container *ngIf="!username.errors.required && username.errors.email"> E-mail je pogrešnog formata. </ng-container>

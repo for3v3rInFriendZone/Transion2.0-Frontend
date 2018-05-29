@@ -1,19 +1,19 @@
-.login-container {
+.padding-container {
     padding-top: 10%;
 }
 
-div.div-center {
+div.login-div {
     background:white;
     color:black;
     width: 100%;
-    max-width: 500px;
+    max-width: 430px;
     margin: auto;
     border-radius: 20px; 
     border: 2px ridge rgb(180, 180, 180);
     opacity: 0.9;
 }
 
-div.div-center p a {
+div.login-div p a {
     color: rgb(0, 77, 64) !important;
     cursor: pointer;
     font-weight: 600;
@@ -44,6 +44,13 @@ mat-form-field {
 } 
 
 /* CSS for new input style */
+
+.form-signin {
+    width: 100%;
+    max-width: 420px;
+    padding: 15px;
+    margin: auto;
+}
 
 .form-label-group {
     position: relative;

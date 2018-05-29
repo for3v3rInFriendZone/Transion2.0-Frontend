@@ -28,3 +28,14 @@ div.long-center h2 {
     background-color: rgb(103, 58, 183);
     color: white;
 } */
+
+div.register-div {
+    background:white;
+    color:black;
+    width: 100%;
+    max-width: 500px; 
+    margin: auto;
+    border-radius: 20px; 
+    border: 2px ridge rgb(180, 180, 180);
+    opacity: 0.9;
+}
