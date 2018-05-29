@@ -2,9 +2,9 @@
     <div class="navbar-content">
         <a class="navbar-brand" (click)="toHomePage()">Transion</a>
         <ul class="nav navbar-nav navbar-right main-nav animated fadeInRight" *ngIf="userOptionsOff">
-            <li>
+            <li [ngClass]="{'nav-element-clicked': isNavActive('fakture')}">
                 <a>
-                    <i class="fa fa-file-text-o" aria-hidden="true"> Fakture </i>
+                    <i [ngClass]="{'nav-element-i': isNavActive('fakture')}" class="fa fa-file-text-o" aria-hidden="true" (click)="goToInvoices()"> Fakture </i>
                 </a>
             </li>
             <li>
@@ -12,7 +12,7 @@
                     <i class="fa fa-money" aria-hidden="true"> Nalozi za prenos </i>
                 </a>
             </li>
-            <li>
+            <li> 
                 <a>
                     <i class="fa fa-medkit" aria-hidden="true"> Zdravstvene knjižice </i>
                 </a>

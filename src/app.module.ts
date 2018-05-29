@@ -54,11 +54,12 @@ import { FooterComponent } from "./FooterComponent/footer.component";
 import { HeaderComponent } from "./HeaderComponent/header.component";
 import { HomeComponent } from "./HomeComponent/home.component";
 import { ProfileActivationComponent } from "./ProfleActivationComponent/profile-activation.component";
+import { InvoiceComponent } from "./InvoiceComponent/inovice.component";
 
 @NgModule({
     imports: [BrowserModule, BrowserAnimationsModule, FormsModule, HttpClientModule, ReactiveFormsModule, RouterModule.forRoot(routes),
         MatFormFieldModule, MatInputModule, MatButtonModule, MatCheckboxModule, MatSelectModule, MatDatepickerModule,
-        MatNativeDateModule, MatSnackBarModule, JwtModule.forRoot({
+        MatNativeDateModule, MatSnackBarModule, MatCardModule, JwtModule.forRoot({
             config: {
                 tokenGetter: () => {
                     return localStorage.getItem('token');
@@ -67,7 +68,7 @@ import { ProfileActivationComponent } from "./ProfleActivationComponent/profile-
             }
         })],
     declarations: [RootComponent, RegisterComponent, LoginComponent, FooterComponent, HeaderComponent, HomeComponent, 
-                   ProfileActivationComponent],
+                   ProfileActivationComponent, InvoiceComponent],
     providers: [AuthGuardService, TokenService, LoginGuardService, { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true }],
     bootstrap: [RootComponent]
 })

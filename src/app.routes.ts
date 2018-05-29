@@ -6,6 +6,7 @@ import { HomeComponent } from "./HomeComponent/home.component";
 import { AuthGuardService } from "./AuthGuards/auth-guard.service";
 import { LoginGuardService } from "./AuthGuards/login-auth-guard.service";
 import { ProfileActivationComponent } from "./ProfleActivationComponent/profile-activation.component";
+import { InvoiceComponent } from "./InvoiceComponent/inovice.component";
 
 
 export const routes: Routes = [
@@ -13,6 +14,7 @@ export const routes: Routes = [
     { path: 'registracija', component: RegisterComponent },
     { path: 'početna', component: HomeComponent, canActivate: [AuthGuardService] },
     { path: 'potvrda/:userId/:linkExpirationDate', component: ProfileActivationComponent },
+    { path: 'fakture', component: InvoiceComponent, canActivate: [AuthGuardService] },
 
     { path: '**', redirectTo: ''}
 ]

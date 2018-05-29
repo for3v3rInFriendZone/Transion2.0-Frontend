@@ -1,0 +1,21 @@
+button.button-round {
+    border-radius: 10px;
+}
+
+.invoice-header-margin {
+    margin-left: 5%;
+}
+
+.invoice-brand {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+    font-size: 30px;
+}
+
+.invoice-div {
+    background:white;
+    position: absolute;
+    min-width: 1100px;
+    border: 2px ridge rgb(180, 180, 180);
+    border-radius: 20px;
+}

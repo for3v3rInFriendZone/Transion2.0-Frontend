@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
     userOptionsOff: boolean;
     userOptionsOn: boolean;
     user: any;
+    invoicesNavbar: boolean
 
     constructor(private router: Router, private tokenService: TokenService, private loginService: LoginService) { } 
 
@@ -22,6 +23,7 @@ export class HeaderComponent implements OnInit {
         this.getLogedUser(decodedToken.sub);
         this.userOptionsOff = true;
         this.userOptionsOn = false;
+        this.invoicesNavbar = false;
      }
 
     toHomePage() {
@@ -47,6 +49,15 @@ export class HeaderComponent implements OnInit {
         .subscribe(result => {
             this.user = result;
         });
+    }
+
+    isNavActive(name: string): boolean {
+        return this.router.url.indexOf(name) !== -1;
+    }
+
+    goToInvoices() {
+        this.router.navigate(['fakture']);
+        this.invoicesNavbar = true;
     }
 
     logout() {
