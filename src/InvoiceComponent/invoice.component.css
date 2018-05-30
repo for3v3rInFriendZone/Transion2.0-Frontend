@@ -3,6 +3,7 @@
     background:white;
     color: black;
     height: 150px;
+    min-width: 200px;
     margin: auto;
     border: 2px ridge rgb(180, 180, 180);
     border-radius: 10px;
@@ -17,4 +18,21 @@
     margin: auto;
     border: 2px ridge rgb(180, 180, 180);
     border-radius: 10px;
+}
+
+.invoices-value-sum {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 28px;
+    color: brown;
+    border: 3px outset whitesmoke;
+    padding: 5px;
+}
+
+.progress {
+    height: 28px;
+    border-radius: 28px;
+}
+
+.tab-content {
+    padding: 14px;
 }

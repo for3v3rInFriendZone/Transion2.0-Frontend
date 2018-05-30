@@ -59,7 +59,7 @@ import { InvoiceComponent } from "./InvoiceComponent/inovice.component";
 @NgModule({
     imports: [BrowserModule, BrowserAnimationsModule, FormsModule, HttpClientModule, ReactiveFormsModule, RouterModule.forRoot(routes),
         MatFormFieldModule, MatInputModule, MatButtonModule, MatCheckboxModule, MatSelectModule, MatDatepickerModule,
-        MatNativeDateModule, MatSnackBarModule, MatCardModule, JwtModule.forRoot({
+        MatNativeDateModule, MatSnackBarModule, MatCardModule, MatTabsModule, JwtModule.forRoot({
             config: {
                 tokenGetter: () => {
                     return localStorage.getItem('token');
