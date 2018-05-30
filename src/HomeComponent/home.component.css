@@ -1,21 +1,11 @@
-/* .home-content {
-    position: relative;
+
+div.home-div {
+    color: black;
+    width: 100%;
     min-width: 900px;
-    min-height: 800px;
-    margin-top: 10px;
+    min-height: 400px;
+    margin: auto;
     background:white;
     border: 2px ridge rgb(180, 180, 180);
-    border-radius: 5px;
-    padding: 15px; 
+    border-radius: 10px;
 }
-
-.pic {
-    margin-left: 20px;
-}
-
-.home-welcome-text {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 20px;
-    color: blue;
-    text-align: center;
-} */

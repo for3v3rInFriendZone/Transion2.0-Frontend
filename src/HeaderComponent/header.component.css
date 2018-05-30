@@ -96,11 +96,13 @@
     -moz-transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
     padding-right: 10px;
+    padding-left: 10px;
     margin-left: 10%;
 }
 
 .navbar-brand:hover {
     color: white !important;
+    border:  1px ridge rgb(104, 151, 82);
     transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
@@ -144,4 +146,12 @@
     border-left: 1px solid whitesmoke;
     padding-left: 10px;
     margin-left: -10px;
+}
+
+.nav-element-clicked {
+    border-bottom: 1px solid rgb(104, 151, 82);
+}
+
+.nav-element-i {
+    color: white !important;
 }

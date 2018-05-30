@@ -12,6 +12,6 @@ import 'bootstrap/dist/js/bootstrap';
 import 'popper.js/dist/popper';
 
 import 'bootstrap/dist/css/bootstrap.css';
-import "@angular/material/prebuilt-themes/deeppurple-amber.css";
+import "@angular/material/prebuilt-themes/indigo-pink.css";
 import 'animate.css/animate.min.css';
 import 'font-awesome/css/font-awesome.css';

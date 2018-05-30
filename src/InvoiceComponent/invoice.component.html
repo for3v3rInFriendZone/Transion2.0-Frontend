@@ -1,31 +1,47 @@
-<div class="container">
-    <div class="row animated fadeIn delay-1.1s">
-        <div class="col-md-12 invoice-header-margin">
-            <div class="invoice-div">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <div class="row">
-                        <div class="col-xs-12 col-md-1">
-                            <u>
-                                <h2 class="invoice-brand"> Fakture </h2>
-                            </u>
-                        </div>
-                        <div class="col-xs-12 col-md-1 col-md-offset-1">
-                            <button style="margin-top: 21px;" class="button-round" type="button" mat-raised-button color="primary">
-                                <i class="fa fa-plus-circle" aria-hidden="true"></i> Nova faktura</button>
-                        </div>
-                        <div class="col-xs-12 col-md-1 col-md-offset-5">
-                            <button style="margin-top: 21px;" class="button-round" type="button" mat-raised-button color="warn">
-                                <i class="fa fa-list" aria-hidden="true"></i> Komintenti</button>
-                        </div>
+<!-- <main role="main" class="container">
+    <div class="padding-container animated fadeIn delay-1.1s">
+        <div class="invoice-div">
+            <div class="d-flex flex-column flex-wrap align-items-center justify-content-center">
+                <div class="p-2 bd-highlight">Flex item 1</div>
+                <div class="p-2 bd-highlight">Flex item 2</div>
+                <div class="p-2 bd-highlight">Flex item 3</div>
+            </div>
+        </div>
+    </div>
+</main> -->
 
-                        <div class="col-xs-12 col-md-1 col-md-offset-1">
-                            <button style="margin-top: 21px;" class="button-round" type="button" mat-raised-button>
-                                <i class="fa fa-print" aria-hidden="true"></i> Stampaj knjigu</button>
-                        </div>
+<main role="main" class="container">
+    <div class="padding-container animated fadeIn delay-1.1s">
+        <div class="row">
+            <div class="invoice-header-div w-50">
+                <div class="d-flex flex-row flex-wrap justify-content-center mt-4">
+                    <u>
+                        <h2 class="invoice-brand"> Fakture </h2>
+                    </u>
+                </div>
+                <div class="d-flex flew-row flex-wrap justify-content-center mt-2">
+                    <div class="ml-4">
+                        <button class="btn btn-outline-success" type="button">
+                            <i class="fa fa-plus-circle" aria-hidden="true"></i> Nova faktura</button>
                     </div>
-                    <hr class="login_type" />
+                    <div class="ml-4">
+                        <button class="btn btn-outline-info" type="button">
+                            <i class="fa fa-list" aria-hidden="true"></i> Komintenti</button>
+                    </div>
+                    <div class="ml-4">
+                        <button class="btn btn-outline-secondary" type="button">
+                            <i class="fa fa-print" aria-hidden="true"></i> Stampaj knjigu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="invoice-content-div">
+                <div class="d-flex flex-row flex-wrap justify-content-center mt-4">
+                    <h2> 0.00 </h2>
+                    <h4> Placeno</h4>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</main>
