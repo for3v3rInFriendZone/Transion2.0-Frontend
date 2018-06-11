@@ -9,15 +9,23 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 })
 
 export class InvoiceComponent implements OnInit {
+    //#region Public members
+
+    //#endregion
+
     invoiceForm: FormGroup;
 
     constructor(private router: Router, private fb: FormBuilder) { }
 
     ngOnInit() {
-        
+
     }
 
     //#region Public methods
+
+    //#endregion
+
+    //#region Private methods
 
     //#endregion
 
